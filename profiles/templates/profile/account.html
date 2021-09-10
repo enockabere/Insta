@@ -1,1 +1,77 @@
-{% include "navbar/navbar.html" %}
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% block content %}
+<section class="post">
+    <div class="coantainer">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="jumbotron" id="jumbo1">
+                    <div class="heads">
+                        <h6>Create Post</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="create">
+                                <form action="">
+                                    <div class="mb-3">
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="share what you are thinking here..."></textarea>
+                                      </div>
+                                      <input type="file" id="files" class="form-control" />
+                                      <button id="postBtn" type="submit" class="btn btn-primary mb-3">Post Status</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="jumbotron" id="jumbo2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="part1">
+                                <img src="../../../static/images/logo/home.png" alt="" class="d-inline-block align-text-top">
+                                <h5>{{user.username}}</h5>
+                                <small>Published</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="part2">
+                                <p>
+                                    The idea is to position the input absolutely inside your label. 
+                                    set the font size of the input to something large, 
+                                    which will increase the size of the "browse" button. It then takes 
+                                    some trial and error using the negative left / top properties to position 
+                                    the input browse button behind your label.
+                                </p>
+                                <div class="image">
+                                    <img src="../../../static/images/prof.jpg" alt="profile pic"> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="part2">
+                                <div class="icons">
+                                <i class="far fa-heart" style="color:#fe5e39;font: size 20px;padding:20px"> Like</i>
+                                <i class="far fa-thumbs-down" style="color:#fe5e39;font: size 20px;padding:20px"> Dislike</i>
+                                <i class="far fa-comments" style="color:#fe5e39;font: size 20px;padding:20px" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Comment</i>
+                                </div>
+                                <div class="collapse" id="collapseExample">
+                                    <form action="">
+                                        <div class="mb-3">
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="share what you are thinking here..."></textarea>
+                                        </div>
+                                        <button id="postBtn" type="submit" class="btn btn-primary mb-3">Post Comment</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

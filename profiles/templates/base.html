@@ -9,11 +9,12 @@
     <title>Instapage</title>
     {% block styles %}
     {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
     
 </head>
-<body>
+<body style="background-color: #edf2f6;">
+    {% include "navbar/navbar.html" %}
     {% block content %} <h1>Welcome all</h1>{% endblock %}
 
     {% block scripts %}

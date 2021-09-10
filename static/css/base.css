@@ -1,3 +1,58 @@
-#navbar{
-    color:yellow;
+.jumbotron{
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 3px 4px #ffffff;
+    margin: 20px;
+
+}
+.heads{
+    padding: 20px;
+    color: #37373a;
+}
+.create{
+    padding: 20px;    
+}
+.post{
+    margin-top: 20px;
+}
+#files{
+    display: inline-block;
+    width: 40%;
+}
+#postBtn{
+    background-color: #fe5e39;
+    color: white;
+    border-color: #fe5e39;
+    display:inline-block;
+    margin-top: 10px;
+    float: right;
+}
+#postBtn:hover{
+    background-color: #e2330b;
+    color: white;
+    border-color: #e2330b;
+}
+.part1{
+    padding: 20px;
+}
+.part1 img{
+    width: 30px;
+    display:inline-block;
+    height: auto;
+    border-radius: 50%;
+}
+.part1 h5{
+    display:inline-block;
+   font-size: 15px;
+}
+.part1 small{
+    float: right;
+}
+.part2{
+    padding: 20px;
+}
+.image img{
+    width: 100%;
+    height: 400px;
+    border-radius: 5px;
 }

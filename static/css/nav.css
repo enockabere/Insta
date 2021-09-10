@@ -1,0 +1,39 @@
+#navbar{
+    background-color:#3f4257;
+}
+.navbar-brand img{
+    width: 30px;
+    height:auto;
+}
+#logs{
+    color: white;
+    font-family: 'Satisfy', cursive;
+    font-weight:700
+}
+.br{
+    color:#fa5530;
+}
+#dropdown:hover .dropdown-menu{
+    display: block;
+}
+#dropdown{
+    margin-right: 40px;
+}
+#prof{
+ width: 40px;
+ height: auto;
+ border-radius: 50%;
+}
+#caret{
+    color: white;
+}
+#logout{
+    color:white;
+    border-color:#fa5530;
+    margin-left: 30px;
+}
+#logout:hover{
+    color:white;
+    border-color:#fa5530;
+    background-color:#fa5530;
+}

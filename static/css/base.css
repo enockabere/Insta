@@ -8,6 +8,7 @@
 .heads{
     padding: 20px;
     color: #37373a;
+    font-family: 'Chakra Petch', sans-serif;
 }
 .create{
     padding: 20px;    
@@ -44,12 +45,17 @@
 .part1 h5{
     display:inline-block;
    font-size: 15px;
+   font-family: 'Chakra Petch', sans-serif;
 }
 .part1 small{
     float: right;
 }
 .part2{
     padding: 20px;
+}
+.part2 p{
+    font-family: 'Patrick Hand', cursive;
+
 }
 .image img{
     width: 100%;

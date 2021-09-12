@@ -9,9 +9,11 @@
     <title>Instapage</title>
     {% block styles %}
     {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% endblock %}
 </head>
 <body>
+  {% include "navbar/navbar.html" %}
     {% block content %}  {%endblock%}
 
 

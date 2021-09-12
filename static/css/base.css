@@ -86,3 +86,15 @@
 .br{
     color:#fa5530;
 }
+.login{
+    background-color: #CCD1D1 ;
+    height: 100vh;
+}
+
+.panel-heading h3{
+    font-family: 'Satisfy', cursive;
+    font-weight: 700;
+}
+.norm{
+    font-family: 'Chakra Petch', sans-serif;
+}

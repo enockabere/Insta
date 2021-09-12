@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% block content %}
+<section>
+<div class="d-flex container-fluid" lc-helper="background" style="height:50vh;background:url(../../../static/images/3.jpg)  center / cover no-repeat;">
+</div>
+<div class="container p-5 bg-light" style="margin-top:-100px">
+	<div class="row">
+		<div class="col-md-4 text-center align-self-center">
+			<div class="lc-block border-end border-2 ">
+				<div editable="rich">
+					<img src="../../../static/images/prof.jpg" height="130px" style="border-radius: 50%;" alt="" srcset="">
+				</div>
+			</div>
+		</div>
+        <div class="col-md-8">
+			<div class="lc-block ">
+				<div editable="rich">
+					<p >
+                        The idea is to position the input absolutely inside your label.
+                         set the font size of the input to something large, which will 
+                         increase the size of the "browse" button. It then takes some trial
+                          and error using the negative left
+                         / top properties to position the input browse button behind your label.    
+                    </p>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-9 offset-md-1">
+			<div class="lc-block mt-5">
+				
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}

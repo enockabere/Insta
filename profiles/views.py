@@ -10,3 +10,6 @@ def index(request):
 @login_required(login_url='accounts/login/')
 def home(request):
     return render(request,'profile/account.html')
+@login_required(login_url='accounts/login/')
+def personal(request):
+    return render(request,'profile/personal.html')

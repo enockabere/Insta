@@ -17,13 +17,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Dancing+Script:wght@700&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
-
+  
   <!-- icons -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
-
 <body>
-  <nav id="navbar" class="navbar navbar-expand-lg navbar-light" >
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}" id="logs" >
             <img src="../../../static/images/logo/home.png" alt="" class="d-inline-block align-text-top">
@@ -33,24 +32,23 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
-        <ul class="navbar-nav mb-2 mb-lg-0">
-            
-            <li class="nav-item dropdown" id="dropdown">
-                <a id="caret" class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img id="prof" src="../../../static/images/prof.jpg" alt="profile pic">   {{user.username}}
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-          </ul>
+       
         <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <i class="btn fas fa-search" type="submit" style="color:white;font-size:20px" ></i>
         </form>
-        <button type="button" id="logout" class="btn btn-outline-success">Logout <i class="fas fa-sign-out-alt"></i></button>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+            
+          <li class="nav-item dropdown" id="dropdown">
+              <a id="caret" class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img id="prof" src="../../../static/images/prof.jpg" alt="profile pic">   {{user.username}}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="#">Profile Settings</a></li>
+                <li><a class="dropdown-item" href="#">Log Out</a></li>
+              </ul>
+              </li>
+        </ul>
       </div>
     </div>
   </nav>

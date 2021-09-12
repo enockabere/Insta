@@ -20,5 +20,5 @@ import profiles
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include ('profiles.urls')),
-    path('accounts/', include('registration.backends.simple.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

@@ -64,8 +64,25 @@
 }
 .welcome{
     height: 100vh;
-    background:url(../images/3.jpg);
+    width: 100%;
+    background:url(../images/6.png);
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    background-repeat: no-repeat;
+}
+
+#homeimg img{
+    height: auto;
+    width: 100%;
+}
+.lead{
+    font-family: 'Chakra Petch', sans-serif;
+    color: black;
+    background-color: white;
+    padding: 20px;
+    border-radius:5px;
+}
+.br{
+    color:#fa5530;
 }

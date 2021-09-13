@@ -45,7 +45,8 @@
                   <img id="prof" src="../../../static/images/prof.jpg" alt="profile pic">   {{user.username}}
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><a class="dropdown-item" href="#">Profile Settings</a></li>
+                <li><a class="dropdown-item" href="{% url 'personal' %}">Profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'home' %}">News Feed</a></li>
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
               </ul>
               </li>

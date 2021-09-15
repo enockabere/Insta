@@ -11,6 +11,11 @@ def index(request):
 
 @login_required(login_url='accounts/login/')
 def home(request):
+    if request.method == 'POST':
+        data = request.POST
+        image = request.FILES.get('image')
+        print('data:',data)
+        print('image:',image)
     images=Image.objects.all()
     return render(request,'profile/account.html', {"images":images})
 @login_required(login_url='accounts/login/')

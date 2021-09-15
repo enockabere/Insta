@@ -13,11 +13,12 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="create">
-                                <form action="">
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
                                     <div class="mb-3">
-                                        <textarea class="form-control" name="description" rows="3" placeholder="share what you are thinking here..."></textarea>
+                                        <textarea required class="form-control" name="description" rows="3" placeholder="share what you are thinking here..."></textarea>
                                       </div>
-                                      <input type="file" name="image" id="files" class="form-control" />
+                                      <input required type="file" name="image" id="files" class="form-control" />
                                       <button id="postBtn" type="submit" class="btn btn-primary mb-3">Post Status</button>
                                 </form>
                             </div>

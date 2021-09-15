@@ -25,6 +25,15 @@ def home(request):
 @login_required(login_url='accounts/login/')
 def account(request):
     try:
+        if request.method == 'POST':
+            data = request.POST
+            dp = request.FILES.get('dp')
+            profile = Profile.objects.create(
+                dp = dp,
+                bio = data['bio']
+            )
+            return redirect('personal')
+        profile = Profile.objects.all()
         current = request.user.id
         # posts = User.objects.include(current)        
         return render(request,'profile/personal.html',{"current":current})

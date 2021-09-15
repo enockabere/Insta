@@ -15,22 +15,23 @@
                             <div class="create">
                                 <form action="">
                                     <div class="mb-3">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="share what you are thinking here..."></textarea>
+                                        <textarea class="form-control" name="description" rows="3" placeholder="share what you are thinking here..."></textarea>
                                       </div>
-                                      <input type="file" id="files" class="form-control" />
+                                      <input type="file" name="image" id="files" class="form-control" />
                                       <button id="postBtn" type="submit" class="btn btn-primary mb-3">Post Status</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+                {% for images in images %}
                 <div class="jumbotron" id="jumbo2">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="part1">
-                                <img src="../../../static/images/logo/home.png" alt="" class="d-inline-block align-text-top">
+                                <img src="{{images.image.url}}" alt="" class="d-inline-block align-text-top">
                                 <h5>{{user.username}}</h5>
-                                <small>Published</small>
+                                <small>{{images.post_date}}</small>
                             </div>
                         </div>
                     </div>
@@ -38,14 +39,10 @@
                         <div class="col-md-12">
                             <div class="part2">
                                 <p>
-                                    The idea is to position the input absolutely inside your label. 
-                                    set the font size of the input to something large, 
-                                    which will increase the size of the "browse" button. It then takes 
-                                    some trial and error using the negative left / top properties to position 
-                                    the input browse button behind your label.
+                                    {{images.description}}
                                 </p>
                                 <div class="image">
-                                    <img src="../../../static/images/prof.jpg" alt="profile pic"> 
+                                    <img src="{{images.image.url}}" alt="profile pic"> 
                                 </div>
                             </div>
                         </div>
@@ -71,6 +68,7 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
             <div class="col-md-3">
                 <div class="jumbotron" id="jumbo3">
                     <div class="heads">

@@ -13,7 +13,7 @@ class Image(models.Model):
     image = models.ImageField(null=False,blank=False)
     description = models.TextField()
     comment = models.TextField(null=True,blank=True)
-    likes = models.IntegerField(null=True,blank=True)
+    likes = models.ManyToManyField(User,related_name='insta_posts')
     post_date = models.DateTimeField(auto_now_add=True)
     user = models.ManyToManyField(User)
     

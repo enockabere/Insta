@@ -28,15 +28,17 @@ def account(request):
         if request.method == 'POST':
             data = request.POST
             dp = request.FILES.get('dp')
+            print('data:',data)
+            print('dp:',dp)
             profile = Profile.objects.create(
                 dp = dp,
-                bio = data['bio']
+                bio = data['bio'],
             )
             return redirect('personal')
         profile = Profile.objects.all()
         current = request.user.id
         # posts = User.objects.include(current)        
-        return render(request,'profile/personal.html',{"current":current})
+        return render(request,'profile/personal.html',{"current":current,"profile":profile})
     except:
         raise Http404("Could not access")
    

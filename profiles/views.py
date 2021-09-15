@@ -26,10 +26,8 @@ def home(request):
 def account(request):
     try:
         current = request.user.id
-        
-        posts = Image.objects.exclude(user_id=current) 
-        print(posts)
-        return render(request,'profile/personal.html',{"posts":posts})
+        # posts = User.objects.include(current)        
+        return render(request,'profile/personal.html',{"current":current})
     except:
         raise Http404("Could not access")
    

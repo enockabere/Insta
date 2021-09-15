@@ -12,6 +12,18 @@
 				<div editable="rich">
 					<img src="../../../static/images/prof.jpg" height="130px" style="border-radius: 50%;" alt="" srcset="">
 				</div>
+				<div class="fom m-3">
+					<form action="" method="POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="mb-3">
+							<textarea class="form-control" name="bio" rows="3" placeholder="Add Bio..."></textarea>
+						  </div>
+						<div class="mb-3">
+							<input type="file" name="dp" id="files" class="form-control" />
+						  <button id="postBtn" type="submit" class="btn btn-primary mb-3">Add</button>
+						</div>  
+					</form>
+				</div>
 			</div>
 		</div>
         <div class="col-md-8">

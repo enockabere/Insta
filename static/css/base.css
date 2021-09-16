@@ -110,7 +110,6 @@
     background-color: black;
 }
 #cover {
-    background: #222 url('https://unsplash.it/1920/1080/?random') center center no-repeat;
     background-size: cover;
     height: 100%;
     text-align: center;
@@ -136,4 +135,20 @@ form:before {
     background-color: rgba(0,0,0,0.3);
     z-index: -1;
     border-radius: 10px;
+}
+
+#sign2{
+   font-size: 12px; 
+   font-family: 'Chakra Petch', sans-serif;
+}
+#sign{
+    background-color: #fe5e39;
+    color: white;
+    border-color: #fe5e39;
+    margin-top: 10px;
+}
+#postBtn:hover{
+    background-color: #e2330b;
+    color: white;
+    border-color: #e2330b;
 }

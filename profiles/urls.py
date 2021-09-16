@@ -9,6 +9,7 @@ urlpatterns = [
     path('home/',views.home,name="home" ),
     path('personal/',views.account,name="personal" ),
     path('like/',views.LikeView,name="like_post" ),
+    path("register", views.register_request, name="register")
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

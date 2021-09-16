@@ -7,8 +7,8 @@ from django.urls import reverse_lazy,reverse
 
 # Create your views here.
 def index(request):
-    if request.user:
-        return redirect('home')
+    # if request.user:
+    #     return redirect('home')
     return render(request, 'index.html')
 
 @login_required(login_url='accounts/login/')
@@ -22,8 +22,9 @@ def home(request):
             image = image,
         )
         return redirect('home')
+    all = User.objects.all()
     images=Image.objects.all()
-    return render(request,'profile/account.html', {"images":images})
+    return render(request,'profile/account.html', {"images":images,"all":all})
 @login_required(login_url='accounts/login/')
 def account(request):
 
@@ -39,10 +40,10 @@ def account(request):
             user = request.user
         )
         return redirect('personal')
-    profile = Profile.objects.all()
     current = request.user.id
-    posts = Image.objects.filter(user=current)        
-    return render(request,'profile/personal.html',{"current":current,"profile":profile})
+    posts = Image.objects.filter(user=current)
+    all = Profile.objects.all()        
+    return render(request,'profile/personal.html',{"posts":posts,"all":all})
    
 def LikeView(request):
     post = get_object_or_404(Image, id=request.POST('post_id'))

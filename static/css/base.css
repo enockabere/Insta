@@ -35,6 +35,7 @@
 }
 .part1{
     padding: 20px;
+    
 }
 .part1 img{
     width: 30px;
@@ -52,6 +53,7 @@
 }
 .part2{
     padding: 20px;
+   
 }
 .part2 p{
     font-family: 'Chakra Petch', sans-serif;
@@ -59,7 +61,7 @@
 }
 .image img{
     width: 100%;
-    height: 400px;
+    height: 200px;
     border-radius: 5px;
 }
 .welcome{
@@ -97,4 +99,13 @@
 }
 .norm{
     font-family: 'Chakra Petch', sans-serif;
+}
+#follo{
+    color: #85C1E9 ;
+    font-family: 'Chakra Petch', sans-serif;
+    float: right;
+}
+#follo:hover{
+    color: #85C1E9 ;
+    background-color: black;
 }

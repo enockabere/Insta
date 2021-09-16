@@ -5,7 +5,25 @@
 <section class="post">
     <div class="coantainer">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-3">
+                <div class="jumbotron" id="jumbo3">
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Well done!</h4>
+                        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                        <hr>
+                        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                      </div>
+                </div>
+                <div class="jumbotron" id="jumbo3">
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Well done!</h4>
+                        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                        <hr>
+                        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                      </div>
+                </div>
+            </div>
+            <div class="col-md-6">
                 <div class="jumbotron" id="jumbo1">
                     <div class="heads">
                         <h6>Create Post</h6>
@@ -30,7 +48,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="part1">
-                                <img src="{{images.image.url}}" alt="" class="d-inline-block align-text-top">
+                                <img src="{{images.image.url}}" alt="" >
                                 <h5>{{images.user.username}}</h5>
                                 <small>{{images.post_date}}</small>
                             </div>
@@ -55,9 +73,9 @@
                                 <form action="{% url 'like_post' %}" method="POST">
                                     {% csrf_token %}
                                     <button type="submit" name="post_id" class="btn btn-outline-info" value={{post.id}}> Like</button>
+                                    <i class="far fa-comments" style="color:#fe5e39;font: size 20px;padding:20px" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Comment</i>
                                 </form>    
-                                <i class="far fa-heart"  style="color:#fe5e39;font: size 20px;padding:20px"> Like</i>
-                                <i class="far fa-comments" style="color:#fe5e39;font: size 20px;padding:20px" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Comment</i>
+                                
                                 </div>
                                 <div class="collapse" id="collapseExample">
                                     <form action="">
@@ -79,26 +97,32 @@
                         <h6>Friend Suggestions</h6>
                     </div>
                     <div class="part1">
-                        <img src="../../../static/images/logo/home.png" alt="" class="d-inline-block align-text-top">
-                                <h5>{{user.username}}</h5>
-                                <a href="{% url 'personal' %}"><small>profile</small></a>
+                        <img src="../../../static/images/logo/home.png" alt="" >
+                            <h5>{{user.username}}</h5>
+                            <a href="{% url 'personal' %}"><small>My profile</small></a>
                     </div>
+                    {% for user in all %}
                     <div class="part1">
-                        <img src="../../../static/images/logo/home.png" alt="" class="d-inline-block align-text-top">
-                                <h5>{{user.username}}</h5>
-                                <small>follow</small>
+                        <img src="../../../static/images/logo/home.png" alt="" >
+                            <h5>{{user.username}}</h5>
+                            <button type="submit" id="follo" class="btn btn-outline-info btn-sm">Follow <i class="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
-                    <div class="part1">
-                        <img src="../../../static/images/logo/home.png" alt="" class="d-inline-block align-text-top">
-                                <h5>{{user.username}}</h5>
-                                <small>follow</small>
-                    </div>
-                    <div class="part1">
-                        <img src="../../../static/images/logo/home.png" alt="" class="d-inline-block align-text-top">
-                                <h5>{{user.username}}</h5>
-                                <small>follow</small>
-                    </div>
+                    {% endfor %}
                 </div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
+</div>
             </div>
         </div>
     </div>

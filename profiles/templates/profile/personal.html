@@ -10,7 +10,9 @@
 		<div class="col-md-4 text-center align-self-center">
 			<div class="lc-block border-end border-2 ">
 				<div editable="rich">
-					<img src="{{profile.dp.url}}" height="130px" style="border-radius: 50%;" alt="" srcset="">
+					{% for all in all %}
+					<img src="{{all.dp.url}}" height="130px" style="border-radius: 50%;" alt="" srcset="">
+					{% endfor %}
 				</div>
 				<div class="fom m-3">
 					<form action="" method="POST" enctype="multipart/form-data">
@@ -30,7 +32,9 @@
 			<div class="lc-block ">
 				<div editable="rich">
 					<p >
-                        {{profile.bio}}    
+						{% for all in all %}
+                        {{all.bio}} 
+						{% endfor %}   
                     </p>
 					<p>{{user.username}}</p>
 					<p>{{user.id}}</p>

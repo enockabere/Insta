@@ -43,10 +43,10 @@ def account(request):
             user = request.user
         )
         return redirect('personal')
-    current = request.user.id
-    posts = Image.objects.filter(user=current)
-    all = Profile.objects.all()        
-    return render(request,'profile/personal.html',{"posts":posts,"all":all})
+    current = request.user.pk
+    posts = Profile.objects.filter(user=current).all()
+         
+    return render(request,'profile/personal.html',{"posts":posts})
    
 def LikeView(request):
     post = get_object_or_404(Image, id=request.POST('post_id'))

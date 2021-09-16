@@ -31,7 +31,7 @@
                         <div class="col-md-12">
                             <div class="part1">
                                 <img src="{{images.image.url}}" alt="" class="d-inline-block align-text-top">
-                                <h5>{{user.username}}</h5>
+                                <h5>{{images.user.username}}</h5>
                                 <small>{{images.post_date}}</small>
                             </div>
                         </div>
@@ -52,7 +52,11 @@
                         <div class="col-md-12">
                             <div class="part2">
                                 <div class="icons">
-                                <i class="far fa-heart" style="color:#fe5e39;font: size 20px;padding:20px"> Like</i>
+                                <form action="{% url 'like_post' %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" name="post_id" class="btn btn-outline-info" value={{post.id}}> Like</button>
+                                </form>    
+                                <i class="far fa-heart"  style="color:#fe5e39;font: size 20px;padding:20px"> Like</i>
                                 <i class="far fa-comments" style="color:#fe5e39;font: size 20px;padding:20px" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Comment</i>
                                 </div>
                                 <div class="collapse" id="collapseExample">

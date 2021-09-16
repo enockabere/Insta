@@ -10,6 +10,7 @@ from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login, authenticate 
 from django.contrib.auth.forms import AuthenticationForm 
+from django.contrib.auth import login, authenticate, logout
 
 User = get_user_model()
 
@@ -90,6 +91,10 @@ def login_request(request):
 	form = AuthenticationForm()
 	return render(request=request, template_name="main/login.html", context={"login_form":form})
 
+def logout_request(request):
+	logout(request)
+	messages.info(request, "You have successfully logged out.") 
+	return redirect("index")
 
 # def search_user(request):
 #     if 'search' in request.GET and request.GET["search"]:

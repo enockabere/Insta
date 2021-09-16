@@ -20,8 +20,8 @@ class Image(models.Model):
     
     def __str__(self):
         return self.description
-# class MyUserModel(AbstractUser):
-#     @classmethod
-#     def search_by_username(cls,search_query):
-#         queries = cls.objects.filter(username__icontains=search_query)
-#         return queries
+class MyUserModel(AbstractUser):
+    @classmethod
+    def search_by_username(cls,search_query):
+        queries = cls.objects.filter(username__icontains=search_query)
+        return queries

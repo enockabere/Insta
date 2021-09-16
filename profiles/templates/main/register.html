@@ -15,7 +15,7 @@
 					<h4 class="display-4 py-2 text-truncate"><span class="br">Insta</span>Page <span class="norm">Sign
 							Up</span></h4>
 					<div class="px-2">
-						<form method="post" class="justify-content-center">
+						<form method="post" class="justify-content-center" id="mafom">
 							<div class="form-group">
 								{% csrf_token %}
 								{{ register_form|crispy }}

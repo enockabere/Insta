@@ -125,7 +125,7 @@
 }
 
 /* only used for background overlay not needed for centering */
-form:before {
+#mafom:before {
     content: '';
     height: 100%;
     left: 0;

@@ -1,12 +1,15 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Profile,Image, User
+from .models import Profile,Image
 from django.http import Http404,HttpResponseRedirect
 from django.urls import reverse_lazy,reverse
 from . forms import NewUserForm
 from django.contrib.auth import login
 from django.contrib import messages
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 # Create your views here.
 def index(request):
@@ -66,3 +69,13 @@ def register_request(request):
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 	return render (request=request, template_name="main/register.html", context={"register_form":form})
+
+# def search_user(request):
+#     if 'search' in request.GET and request.GET["search"]:
+#         search_term = request.GET.get('search')
+#         searched_images = MyUserModel.search_by_username(search_term)
+#         message = f"{search_term}"
+#         return render (request,'search.html',{"message":message,"results":searched_images})
+#     else:
+#         message = "You have not searched for any term"
+#         return render (request,'search.html',{"message":message})

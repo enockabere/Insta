@@ -1,5 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User, AbstractUser
+from django.contrib.auth.models import User, AbstractBaseUser
+# from django.conf import settings
+
+# User = settings.AUTH_USER_MODEL
 
 # Create your models here.
 class Profile(models.Model):
@@ -14,14 +17,16 @@ class Image(models.Model):
     description = models.TextField()
     comment = models.TextField(null=True,blank=True)
     likes = models.ManyToManyField(User,blank=True,related_name='likes')
-    dislikes = models.ManyToManyField(User,blank=True,related_name='dislikes')
     post_date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE,blank=True)
     
     def __str__(self):
         return self.description
-class MyUserModel(AbstractUser):
-    @classmethod
-    def search_by_username(cls,search_query):
-        queries = cls.objects.filter(username__icontains=search_query)
-        return queries
+# class MyUserModel(AbstractBaseUser):
+#     class Meta:
+#         model = User
+#         fields = ['username']
+#     @classmethod
+#     def search_by_username(cls,search_term):
+#         queries = cls.objects.filter(username__icontains=search_term)
+#         return queries

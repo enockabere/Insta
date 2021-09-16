@@ -16,8 +16,8 @@ User = get_user_model()
 
 # Create your views here.
 def index(request):
-    # if request.user:
-    #     return redirect('home')
+    if request.user:
+        logout(request)
     return render(request, 'index.html')
 
 @login_required(login_url='accounts/login/')

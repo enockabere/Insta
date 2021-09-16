@@ -6,8 +6,8 @@
     <div class="coantainer">
         <div class="row">
             <div class="col-md-3">
-                <div class="jumbotron" id="jumbo3">
-                    <div class="alert alert-success" role="alert">
+                <div class="jumbotron" id="jumbo33">
+                    <div class="alert alert-success" role="alert" style="background-color: #9ab3e0;">
                         <h4 class="alert-heading">Quote of Day!</h4>
                         <p>
                             “You know you’ve reached middle age
@@ -19,11 +19,17 @@
                       </div>
                 </div>
                 <div class="jumbotron" id="jumbo3">
-                    <div class="alert alert-success" role="alert">
-                        <h4 class="alert-heading">Well done!</h4>
-                        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    <div id="bash" class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Whose Birthday??! <i class="fa fa-birthday-cake" aria-hidden="true"></i></h4>
+                        <p>
+                            Insta<span class="br">Page</span> sends you smiles for every moment of your special day…Have a
+                             wonderful time and a very happy birthday!” “Hope your special day 
+                             brings you all that your heart desires!
+                             Here's wishing you a day full of pleasant surprises!
+                        </p>
                         <hr>
-                        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                        <p class="mb-0">We are here to celebrate with you!.</p>
+                        <button type="button" class="btn btn-outline-success mt-3"> Click Here To Celebrate</button>
                       </div>
                 </div>
             </div>
@@ -56,39 +62,41 @@
                                 <h5>{{images.user.username}}</h5>
                                 <small>{{images.post_date}}</small>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
                             <div class="part2">
                                 <p>
                                     {{images.description}}
                                 </p>
                                 <div class="image">
-                                    <img src="{{images.image.url}}" alt="profile pic"> 
+                                    <img src="{{images.image.url}}" class="img-fluid" alt="profile pic"> 
                                 </div>
+                                <div class="icons">
+                                    <form action="{% url 'like_post' %}" method="POST">
+                                        {% csrf_token %}
+                                        <button type="submit" name="post_id" class="btn btn-outline-info" value={{post.id}}> Like</button>
+                                        <i class="far fa-comments" style="color:#fe5e39;font: size 20px;padding:20px" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Comment</i>
+                                    </form>    
+                                    
+                                    </div>
+                                    <div class="collapse" id="collapseExample">
+                                        <form action="">
+                                            <div class="mb-3">
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="share what you are thinking here..."></textarea>
+                                            </div>
+                                            <button id="postBtn" type="submit" class="btn btn-primary mb-3">Post Comment</button>
+                                        </form>
+                                    </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="part2">
-                                <div class="icons">
-                                <form action="{% url 'like_post' %}" method="POST">
-                                    {% csrf_token %}
-                                    <button type="submit" name="post_id" class="btn btn-outline-info" value={{post.id}}> Like</button>
-                                    <i class="far fa-comments" style="color:#fe5e39;font: size 20px;padding:20px" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Comment</i>
-                                </form>    
                                 
-                                </div>
-                                <div class="collapse" id="collapseExample">
-                                    <form action="">
-                                        <div class="mb-3">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="share what you are thinking here..."></textarea>
-                                        </div>
-                                        <button id="postBtn" type="submit" class="btn btn-primary mb-3">Post Comment</button>
-                                    </form>
-                                </div>
                             </div>
                         </div>
                     </div>

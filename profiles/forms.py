@@ -1,6 +1,6 @@
 from django import forms
 from  django.contrib.auth.forms import UserCreationForm
-
+from .models import Comment
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -23,3 +23,11 @@ class NewUserForm(UserCreationForm):
         if commit:
             user.save()
         return user
+class CommentForm(forms.ModelForm):
+    content = forms.CharField(widget=forms.Textarea(attrs={
+        'rows': '4',
+    }))
+    class Meta:
+        model = Comment
+        fields = ('content',)
+        

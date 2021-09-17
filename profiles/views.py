@@ -1,7 +1,7 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Profile,Image
+from .models import Profile,Image, Like
 from django.http import Http404,HttpResponseRedirect
 from django.urls import reverse_lazy,reverse
 from . forms import NewUserForm
@@ -29,7 +29,8 @@ def home(request):
     
     all = User.objects.all()
     images=Image.objects.all()
-    return render(request,'profile/account.html', {"images":images,"all":all})
+    user = request.user
+    return render(request,'profile/account.html', {"images":images,"all":all,"user":user})
 @login_required(login_url='accounts/login/')
 def account(request):
 
@@ -50,12 +51,25 @@ def account(request):
          
     return render(request,'profile/personal.html',{"posts":posts})
    
-def LikeView(request):
-    post = get_object_or_404(Image, id=request.POST('post_id'))
-    post.likes.add(request.user)
-    return HttpResponseRedirect(reverse('home'))
-def updates(request):
-    return HttpResponseRedirect(reverse('personal'))
+def like_post(request):
+    user = request.user
+    if request.method == "POST":
+        post_id = request.POST.get('post_id')
+        post_obj = Image.objects.get(id=post_id)
+        
+        if user in post_obj.liked.all():
+            post_obj.liked.remove(user)
+        else:
+            post_obj.liked.add(user)
+        like, created = Like.objects.get_or_create(user=user,post_id=post_id)
+        
+        if not created:
+            if like.value == 'Like':
+                like.value = 'Unlike'
+            else:
+                like.value = 'Like' 
+        like.save()           
+    return redirect('home')
 
 def register_request(request):
 	if request.method == "POST":

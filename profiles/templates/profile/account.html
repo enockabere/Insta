@@ -72,10 +72,15 @@
                                 <div class="icons">
                                     <form action="{% url 'like_post' %}" method="POST">
                                         {% csrf_token %}
-                                        <button type="submit" name="post_id" class="btn btn-outline-info" value={{post.id}}> Like</button>
+                                        <input type="hidden" name="post_id"  value="{{images.id}}">
+                                        {% if user not in images.liked.all %}
+                                            <button type="submit" class="btn btn-outline-info"> Like</button>
+                                        {% else %}
+                                            <button type="submit" class="btn btn-outline-danger"> Unlike</button>
+                                        {% endif %}
                                         <i class="far fa-comments" style="color:#fe5e39;font: size 20px;padding:20px" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Comment</i>
                                     </form>    
-                                    
+                                    <strong>{{images.liked.all.count}} likes</strong>
                                     </div>
                                     <div class="collapse" id="collapseExample">
                                         <form action="">

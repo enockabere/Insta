@@ -54,9 +54,9 @@
                     </div>
                 </div>
                 {% for images in images %}
-                <div class="jumbotron" id="jumbo2">
+                <div class="jumbotron" >
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12" id="jumbo2" style="height: 400px;">
                             <div class="part1">
                                 <img src="{{images.image.url}}" alt="" >
                                 <h5>{{images.user.username}}</h5>

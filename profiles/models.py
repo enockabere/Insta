@@ -13,15 +13,29 @@ class Profile(models.Model):
    def __str__(self):
        return self.bio 
 class Image(models.Model):
-    image = models.ImageField(null=False,blank=False)
+    image = models.ImageField(null=True,blank=False)
     description = models.TextField()
     comment = models.TextField(null=True,blank=True)
-    likes = models.ManyToManyField(User,blank=True,related_name='likes')
+    liked = models.ManyToManyField(User,blank=True,related_name='liked')
     post_date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User,on_delete=models.CASCADE,blank=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,related_name='author')
     
     def __str__(self):
         return self.description
+    @property
+    def num_likes(self):
+        return self.likes.all().count()
+LIKE_CHOICES = (
+    ('Like', 'Like'),
+    ('Unlike','Unlike'),
+)
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Image,on_delete=models.CASCADE)
+    value = models.CharField(choices=LIKE_CHOICES, default='Like',max_length=10)
+    
+    def __str__(self):
+        return str(self.post)
 # class MyUserModel(AbstractBaseUser):
 #     class Meta:
 #         model = User

@@ -65,27 +65,13 @@
     border-radius: 5px;
     max-width: 200px;
 }
-.welcome{
-    height: 100vh;
-    width: 100%;
-    background:url(../images/6.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-}
+
 
 #homeimg img{
     height: auto;
     width: 100%;
 }
-.lead{
-    font-family: 'Chakra Petch', sans-serif;
-    color: black;
-    background-color: white;
-    padding: 20px;
-    border-radius:5px;
-}
+
 .br{
     color:#fa5530;
 }
@@ -148,7 +134,7 @@
     border-color: #fe5e39;
     margin-top: 10px;
 }
-#postBtn:hover{
+#sign:hover{
     background-color: #e2330b;
     color: white;
     border-color: #e2330b;
@@ -158,7 +144,6 @@
    font-family: 'Chakra Petch', sans-serif;
 }
 #jumbo2{
-    height: 400px;
     overflow-x: hidden;
     overflow-y: auto;
 }

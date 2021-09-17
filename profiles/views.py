@@ -15,22 +15,18 @@ from django.contrib.auth import login, authenticate, logout
 User = get_user_model()
 
 # Create your views here.
-def index(request):
-    if request.user:
-        logout(request)
-    return render(request, 'index.html')
-
 @login_required(login_url='accounts/login/')
 def home(request):
     if request.method == 'POST':
         data = request.POST
         image = request.FILES.get('image')
-        
+
         post = Image.objects.create(
             description = data['description'],
             image = image,
         )
         return redirect('home')
+    
     all = User.objects.all()
     images=Image.objects.all()
     return render(request,'profile/account.html', {"images":images,"all":all})
@@ -74,6 +70,7 @@ def register_request(request):
 	return render (request=request, template_name="main/register.html", context={"register_form":form})
 
 def login_request(request):
+    
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():

@@ -78,9 +78,9 @@
                                         {% else %}
                                             <button type="submit" class="btn btn-outline-danger"> Unlike</button>
                                         {% endif %}
+                                        <strong>{{images.liked.all.count}} likes</strong>
                                         <i class="far fa-comments" style="color:#fe5e39;font: size 20px;padding:20px" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Comment</i>
                                     </form>    
-                                    <strong>{{images.liked.all.count}} likes</strong>
                                     </div>
                                     <div class="collapse" id="collapseExample">
                                         <form action="">

@@ -15,7 +15,6 @@ class Profile(models.Model):
 class Image(models.Model):
     image = models.ImageField(null=True,blank=False)
     description = models.TextField()
-    comment = models.TextField(null=True,blank=True)
     liked = models.ManyToManyField(User,blank=True,related_name='liked')
     post_date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,related_name='author')
@@ -36,6 +35,14 @@ class Like(models.Model):
     
     def __str__(self):
         return str(self.post)
+class Comment(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    post = models.ForeignKey(Image,on_delete=models.CASCADE)
+    content = models.TextField()
+    
+    def __str__(self):
+        return str(self.user.username)
 # class MyUserModel(AbstractBaseUser):
 #     class Meta:
 #         model = User

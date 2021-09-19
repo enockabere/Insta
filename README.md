@@ -7,7 +7,7 @@ A clone of the popular Instagram application. Users are able to upload images,se
 ![views](static/images/1.png)
 
 ### Live link
-Visit the application on https://enock-gallery.herokuapp.com/
+Visit the application on https://enock-insta.herokuapp.com/
 ### Setup & Run Instructions
 - Create and activate a virtual environment
 - Install the dependencies listed in the requirements.txt

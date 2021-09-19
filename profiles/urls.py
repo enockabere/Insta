@@ -11,7 +11,6 @@ urlpatterns = [
     path('like/',views.like_post,name="like_post" ),
     path("register", views.register_request, name="register"),
     path("logout", views.logout_request, name= "logout"),
-    # path("search", views.search_user, name="search"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

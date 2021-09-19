@@ -5,13 +5,7 @@ from django.contrib.auth.models import User, AbstractBaseUser
 # User = settings.AUTH_USER_MODEL
 
 # Create your models here.
-class Profile(models.Model):
-   dp = models.ImageField(null=True,blank=True)
-   bio = models.TextField(null=True,blank=True)
-   user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True,related_name="posts")
-   
-   def __str__(self):
-       return self.bio 
+
 class Image(models.Model):
     image = models.ImageField(null=True,blank=False)
     description = models.TextField()
@@ -28,6 +22,12 @@ LIKE_CHOICES = (
     ('Like', 'Like'),
     ('Unlike','Unlike'),
 )
+class Profile(models.Model):
+   dp = models.ImageField(null=True,blank=True)
+   bio = models.TextField(null=True,blank=True)
+   user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True,related_name="posts")
+   def __str__(self):
+       return self.bio 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Image,on_delete=models.CASCADE)
@@ -38,7 +38,7 @@ class Like(models.Model):
 class Comment(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
-    post = models.ForeignKey(Image,on_delete=models.CASCADE)
+    post = models.ForeignKey(Image,on_delete=models.CASCADE,related_name="comments")
     content = models.TextField()
     
     def __str__(self):

@@ -1,10 +1,10 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Profile,Image, Like
+from .models import Profile,Image, Like,Comment
 from django.http import Http404,HttpResponseRedirect
 from django.urls import reverse_lazy,reverse
-from . forms import NewUserForm
+from .forms import NewUserForm, CommentForm
 from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth import get_user_model
@@ -24,16 +24,17 @@ def home(request):
         post = Image.objects.create(
             description = data['description'],
             image = image,
+            user = request.user
         )
         return redirect('home')
     
     all = User.objects.all()
     images=Image.objects.all()
+
     user = request.user
     return render(request,'profile/account.html', {"images":images,"all":all,"user":user})
 @login_required(login_url='accounts/login/')
 def account(request):
-
     if request.method == 'POST':
         data = request.POST
         dp = request.FILES.get('dp')
@@ -43,7 +44,7 @@ def account(request):
         profile = Profile.objects.create(
             dp = dp,
             bio = data['bio'],
-            user = request.user
+            user = request.user,
         )
         return redirect('personal')
     current = request.user.pk

@@ -14,14 +14,23 @@
 					<img src="{{posts.dp.url}}" height="130px" style="border-radius: 50%;" alt="" srcset="">
 					{% endfor %}
 				</div>
-				<div class="fom m-3">
+				<strong style="margin-top: 10px;">Username: <span style="text-transform: capitalize; font-weight: lighter;"> {{user.username}}</span> </strong>
+				<p style="padding: 20px;font-weight: 600;">My Bio</p>
+				<small>
+					{% for posts in posts %}
+                        {{posts.bio}}
+						{% endfor %} 
+				</small></br>
+
+				<button type="button" id="show" class="btn btn-info m-3">Profile Settings</button>
+				<div class="fom m-3" id="foms" style="display: none;">
 					<form action="" method="POST" enctype="multipart/form-data">
 						{% csrf_token %}
 						<div class="mb-3">
 							<textarea class="form-control" name="bio" rows="3" placeholder="Add Bio..."></textarea>
 						  </div>
 						<div class="mb-3">
-							<input type="file" name="dp" id="files" class="form-control" />
+							<input type="file" name="dp" id="files" class="form-control" style="float: left;"/>
 						  <button id="postBtn" type="submit" class="btn btn-primary mb-3">Add</button>
 						</div>  
 					</form>
@@ -32,12 +41,32 @@
 			<div class="lc-block ">
 				<div editable="rich">
 					<p >
-						{% for posts in posts %}
-                        {{posts.bio}}
-						{% endfor %}  
+						 My Posts
                     </p>
-					<p>{{user.username}}</p>
-					<p>{{user.id}}</p>
+					<div class="row">
+						<div class="col-md-12" id="jumbo2" style="height: 400px;" >
+							{% for posts in posts %}
+                            <div class="post" style="margin-bottom: 10px;">
+                                <div class="part1">
+                                    <img src="{{posts.dp.url}}" alt="">
+                                    <h5>{{posts.user.username}}</h5>
+                                    <small>{{posts.user.images.post_date}}</small>
+                                    <div class="part2">
+                                        <p>
+                                            {{posts.user.image.description}}
+                                        </p>
+                                        <div class="image">
+                                            <img src="{{posts.user}}" class="img-fluid" alt="profile pic">
+                                        </div>
+                                        <div class="icons">       
+                                        </div>
+                                    </div>
+                                </div>  
+
+                            </div>
+                           {% endfor %}
+                        </div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -50,5 +79,16 @@
 		</div>
 	</div>
 </div>
+<script>
+	$(document).ready(function(){
+		$('#show').click(function(event){
+			event.preventDefault();
+			$('#foms').toggle(500);
+		})
+		$('#postBtn').click(function(event){
+			$("#show").hide();
+		})
+	})
+</script>
 </section>
 {% endblock %}

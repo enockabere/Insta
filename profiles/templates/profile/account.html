@@ -11,26 +11,29 @@
                         <h4 class="alert-heading">Quote of Day!</h4>
                         <p>
                             “You know you’ve reached middle age
-                             when you’re cautioned to slow down by your doctor,
-                              instead of by the police.”
+                            when you’re cautioned to slow down by your doctor,
+                            instead of by the police.”
                         </p>
                         <hr>
                         <p class="mb-0">—Joan Rivers</p>
-                      </div>
+                    </div>
                 </div>
                 <div class="jumbotron" id="jumbo3">
                     <div id="bash" class="alert alert-success" role="alert">
-                        <h4 class="alert-heading">Whose Birthday??! <i class="fa fa-birthday-cake" aria-hidden="true"></i></h4>
+                        <h4 class="alert-heading">Whose Birthday??! <i class="fa fa-birthday-cake"
+                                aria-hidden="true"></i></h4>
                         <p>
-                            Insta<span class="br">Page</span> sends you smiles for every moment of your special day…Have a
-                             wonderful time and a very happy birthday!” “Hope your special day 
-                             brings you all that your heart desires!
-                             Here's wishing you a day full of pleasant surprises!
+                            Insta<span class="br">Page</span> sends you smiles for every moment of your special day…Have
+                            a
+                            wonderful time and a very happy birthday!” “Hope your special day
+                            brings you all that your heart desires!
+                            Here's wishing you a day full of pleasant surprises!
                         </p>
                         <hr>
                         <p class="mb-0">We are here to celebrate with you!.</p>
-                        <button type="button" class="btn btn-outline-success mt-3"> Click Here To Celebrate</button>
-                      </div>
+                        <p><strong>If today is your birthday, click on the button below and we shall send you some confetti from us!!!!</strong></p>
+                        <button id="btnParty" type="button" class="btn btn-outline-success mt-3"> Lets Party</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -44,102 +47,88 @@
                                 <form action="" method="POST" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <div class="mb-3">
-                                        <textarea required class="form-control" name="description" rows="3" placeholder="share what you are thinking here..."></textarea>
-                                      </div>
-                                      <input required type="file" name="image" id="files" class="form-control" />
-                                      <button id="postBtn" type="submit" class="btn btn-primary mb-3">Post Status</button>
+                                        <textarea required class="form-control" name="description" rows="3"
+                                            placeholder="share what you are thinking here..."></textarea>
+                                    </div>
+                                    <input required type="file" name="image" id="files" class="form-control" />
+                                    <button id="postBtn" type="submit" class="btn btn-primary mb-3">Post Status</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                {% for images in images %}
                 <div class="jumbotron" >
                     <div class="row">
-                        <div class="col-md-12" id="jumbo2" style="height: 400px;">
-                            <div class="part1">
-                                <img src="{{images.image.url}}" alt="" >
-                                <h5>{{images.user.username}}</h5>
-                                <small>{{images.post_date}}</small>
-                            </div>
-                            <div class="part2">
-                                <p>
-                                    {{images.description}}
-                                </p>
-                                <div class="image">
-                                    <img src="{{images.image.url}}" class="img-fluid" alt="profile pic"> 
-                                </div>
-                                <div class="icons">
-                                    <form action="{% url 'like_post' %}" method="POST">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="post_id"  value="{{images.id}}">
-                                        {% if user not in images.liked.all %}
-                                            <button type="submit" class="btn btn-outline-info"> Like</button>
-                                        {% else %}
-                                            <button type="submit" class="btn btn-outline-danger"> Unlike</button>
-                                        {% endif %}
-                                        <strong>{{images.liked.all.count}} likes</strong>
-                                        <i class="far fa-comments" style="color:#fe5e39;font: size 20px;padding:20px" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Comment</i>
-                                    </form>    
+                        
+                        <div class="col-md-12" id="jumbo2" style="height: 400px;" >
+                            {% for images in images %}
+                            <div class="post" style="margin-bottom: 10px;">
+                                <div class="part1">
+                                    <img src="{{images.image.url}}" alt="">
+                                    <h5>{{images.user.username}}</h5>
+                                    <small>{{images.post_date}}</small>
+                                    <div class="part2">
+                                        <p>
+                                            {{images.description}}
+                                        </p>
+                                        <div class="image">
+                                            <img src="{{images.image.url}}" class="img-fluid" alt="profile pic">
+                                        </div>
+                                        <div class="icons">
+                                            <form action="{% url 'like_post' %}" method="POST">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="post_id" value="{{images.id}}">
+                                                {% if user not in images.liked.all %}
+                                                <button type="submit" class="btn btn-outline-info"> Like</button>
+                                                {% else %}
+                                                <button type="submit" class="btn btn-outline-danger"> Unlike</button>
+                                                {% endif %}
+                                                <strong>{{images.liked.all.count}} likes</strong>
+                                                <i class="far fa-comments" style="color:#fe5e39;font: size 20px;padding:20px"
+                                                    data-bs-toggle="collapse" href="#" role="button"
+                                                    aria-expanded="false" aria-controls="collapseExample"> Comment</i>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <div class="collapse" id="collapseExample">
-                                        <form action="">
-                                            <div class="mb-3">
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="share what you are thinking here..."></textarea>
-                                            </div>
-                                            <button id="postBtn" type="submit" class="btn btn-primary mb-3">Post Comment</button>
-                                        </form>
-                                    </div>
+                                </div>  
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="part2">
-                                
-                            </div>
-                        </div>
+                            {% endfor %}    
+                        </div>    
                     </div>
                 </div>
             </div>
-            {% endfor %}
-            <div class="col-md-3">
+            <div class="col-md-3" id="tsparticles">
                 <div class="jumbotron" id="jumbo3">
                     <div class="heads">
                         <h6>Friend Suggestions</h6>
                     </div>
                     <div class="part1">
-                        <img src="../../../static/images/logo/home.png" alt="" >
-                            <h5>{{user.username}}</h5>
-                            <a href="{% url 'personal' %}"><small>My profile</small></a>
+                        <img src="../../../static/images/logo/home.png" alt="">
+                        <h5>{{user.username}}</h5>
+                        <a href="{% url 'personal' %}"><small>My profile</small></a>
                     </div>
                     {% for user in all %}
                     <div class="part1">
-                        <img src="../../../static/images/logo/home.png" alt="" >
-                            <h5>{{user.username}}</h5>
-                            <button type="submit" id="follo" class="btn btn-outline-info btn-sm">Follow <i class="fa fa-plus" aria-hidden="true"></i></button>
+                        <img src="../../../static/images/logo/home.png" alt="">
+                        <h5>{{user.username}}</h5>
+                        <button type="submit" id="follo" class="btn btn-outline-info btn-sm">Follow <i
+                                class="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
                     {% endfor %}
                 </div>
-
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="...">
-      <strong class="me-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
-  </div>
-</div>
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <img src="..." class="rounded me-2" alt="...">
+                            <strong class="me-auto">Bootstrap</strong>
+                            <small>11 mins ago</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            Hello, world! This is a toast message.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractBaseUser
-# from django.conf import settings
 
-# User = settings.AUTH_USER_MODEL
 
 # Create your models here.
 
@@ -43,11 +41,3 @@ class Comment(models.Model):
     
     def __str__(self):
         return str(self.user.username)
-# class MyUserModel(AbstractBaseUser):
-#     class Meta:
-#         model = User
-#         fields = ['username']
-#     @classmethod
-#     def search_by_username(cls,search_term):
-#         queries = cls.objects.filter(username__icontains=search_term)
-#         return queries

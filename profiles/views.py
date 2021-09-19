@@ -108,12 +108,3 @@ def logout_request(request):
 	messages.info(request, "You have successfully logged out.") 
 	return redirect("index")
 
-# def search_user(request):
-#     if 'search' in request.GET and request.GET["search"]:
-#         search_term = request.GET.get('search')
-#         searched_images = MyUserModel.search_by_username(search_term)
-#         message = f"{search_term}"
-#         return render (request,'search.html',{"message":message,"results":searched_images})
-#     else:
-#         message = "You have not searched for any term"
-#         return render (request,'search.html',{"message":message})

@@ -25,9 +25,9 @@ To make advancements/modifications, follow these steps:
 - Create a Pull Request
 ### Technologies Used
 Technologies used to develop this application:
-- Python v3.7
+- Python v3.9.5
 - Django 3.2.7
-- Flask-Bootstrap
+- Bootstrap5
 - HTML
 - CSS
 - Cloudnary

@@ -1,4 +1,4 @@
-[![codebeat badge](https://codebeat.co/badges/7bbb17b5-2cde-4108-aac0-eefcd439cf9f)](https://codebeat.co/projects/github-com-enockabere-gallery-master)
+[![codebeat badge](https://codebeat.co/badges/7bbb17b5-2cde-4108-aac0-eefcd439cf9f)](https://codebeat.co/projects/github-com-enockabere-insta-master)
 # InstaPage
 ## Project Description
 A clone of the popular Instagram application. Users are able to upload images,see their profile, follow other users to see their photos, like and comment on photos.

@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractBaseUser
-
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
 class Image(models.Model):
-    image = models.ImageField(null=True,blank=False)
+    image = CloudinaryField('image',null=True)
     description = models.TextField()
     liked = models.ManyToManyField(User,blank=True,related_name='liked')
     post_date = models.DateTimeField(auto_now_add=True)
@@ -21,7 +21,7 @@ LIKE_CHOICES = (
     ('Unlike','Unlike'),
 )
 class Profile(models.Model):
-   dp = models.ImageField(null=True,blank=True)
+   dp = CloudinaryField('image',null=True)
    bio = models.TextField(null=True,blank=True)
    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True,related_name="posts")
    def __str__(self):

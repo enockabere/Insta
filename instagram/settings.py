@@ -16,6 +16,9 @@ import profiles
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
@@ -49,7 +52,11 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+cloudinary.config( 
+  cloud_name = "enock", 
+  api_key = "131559831386722", 
+  api_secret = "fDQuLwrK6ExBtidSqxme_ZzHaxY" 
+)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -68,6 +75,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+DEBUG = True
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
